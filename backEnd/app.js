@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const config = require('./config/config');
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
-const eventRoutes = require('./routes/eventRoutes');
+const config = require('./src/config/config');
+const authRoutes = require('./src/routes/authRoutes');
+const userRoutes = require('./src/routes/userRoutes');
+const eventRoutes = require('./src/routes/eventRoutes');
 
 const app = express();
 
