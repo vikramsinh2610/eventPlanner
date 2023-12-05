@@ -8,5 +8,6 @@ router.post('/create', authMiddleware, eventController.createEvent);
 router.get('/list', authMiddleware, eventController.getAllEvent);
 router.get('/:id', authMiddleware, eventController.getEvent);
 router.put('/update/:id', authMiddleware, eventController.updateEvent);
+router.delete('/delete/:id', authMiddleware, eventController.deleteEvent);
 
 module.exports = router;

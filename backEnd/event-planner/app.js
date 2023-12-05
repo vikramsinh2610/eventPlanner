@@ -2,10 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./src/config/config');
 const authRoutes = require('./src/routes/authRoutes');
-const userRoutes = require('./src/routes/userRoutes');
 const eventRoutes = require('./src/routes/eventRoutes');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
 
 // Connect to MongoDB
 mongoose
@@ -18,7 +20,6 @@ app.use(express.json());
 
 // Routes
 app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
 app.use('/event', eventRoutes);
 
 // Start the server

@@ -6,27 +6,27 @@ const config = require('../config/config');
 
 exports.register = async (req, res) => {
 
-    console.log("vikram",req);
-  // Check if username already exists
   const existingUser = await User.findOne({ username: req.body.username });
   if (existingUser) {
     return res.status(400).json({ msg: 'Username already exists' });
   }
 
-  // Hash the password
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-  // Create a new user
   const user = new User({
     username: req.body.username,
+    email: req.body.email,
+    phone: req.body.phone,
     password: hashedPassword,
   });
 
-  // Save the user to the database
   try {
     await user.save();
-    res.json({ msg: 'User registered successfully' });
+
+    const token = jwt.sign({ userId: user.id }, config.secretKey, { expiresIn: '1h' });
+    res.json({ msg: 'User registered successfully', token });
+
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');

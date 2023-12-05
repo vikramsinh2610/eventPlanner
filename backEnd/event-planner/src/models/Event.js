@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-  name: { type: String, required: true, maxlength: 30 },
-  description: String,
+  eventName: { type: String, required: true, maxlength: 30 },
+  eventDescription: String,
   startDate: Date,
   endDate: Date,
   recurrenceType: { type: String, required: true },

@@ -1,5 +1,5 @@
 module.exports = {
-    mongoURI: "mongodb://localhost:27017",
+    mongoURI: "mongodb://0.0.0.0:27017/test",
     secretKey: 'your-secret-key-for-jwt',
   };
   
