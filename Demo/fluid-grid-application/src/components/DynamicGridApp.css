@@ -1,0 +1,29 @@
+.dynamic-grid-app {
+    text-align: center;
+  }
+  
+  .controls {
+    margin: 20px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns, 3), 1fr);
+    gap: 10px;
+    margin:10px;
+  }
+  
+  .box {
+    border: 1px solid #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
